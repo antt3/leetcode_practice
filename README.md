@@ -1,7 +1,7 @@
 # leetcode_practice
 <br>My Leetcode repo to keep track of my progress.
 <br>Each folder is named with the language I use to solve the problem in each file.
-<br>Planning to code primarily in C to get practice with the language.
+<br>I list my solutions in the files, as well as any ideal solution I find to reference later.
 <br>Readme is looking kinda bare, added a couple memes to fill up the space.
 <br>
 ---
