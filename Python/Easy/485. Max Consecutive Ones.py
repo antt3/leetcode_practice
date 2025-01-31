@@ -1,5 +1,8 @@
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        # One Line Solution (Best Time I've Found)
+        # return max((len(list(g)) for k, g in groupby(nums) if k == 1), default = 0)
+        
         # Found Better Solution
         maxi = result = 0
         for num in nums:
