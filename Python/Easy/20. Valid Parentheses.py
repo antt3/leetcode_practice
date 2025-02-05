@@ -1,24 +1,38 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-    # Initial Solution Without Comments
         stack = []
-        for p in range(len(s)):
-            if s[p] in ('(', '[', '{'):
-                stack.append(s[p])
-                continue
-            if len(stack) == 0:
-                return False
-            popped = stack.pop()
-            if (
-                (popped == '(' and s[p] == ')') or
-                (popped == '[' and s[p] == ']') or
-                (popped == '{' and s[p] == '}')
-            ):
-                continue
-            return False
-        if len(stack) > 0:
-            return False
-        return True
+        close_to_open = { ")" : "(", "]" : "[", "}" : "{" }
+
+        for c in s:
+            if c in close_to_open:
+                if stack and stack[-1] == close_to_open[c]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+
+        return True if not stack else False
+
+    # Initial Solution Without Comments
+        # stack = []
+        # for p in range(len(s)):
+        #     if s[p] in ('(', '[', '{'):
+        #         stack.append(s[p])
+        #         continue
+        #     if len(stack) == 0:
+        #         return False
+        #     popped = stack.pop()
+        #     if (
+        #         (popped == '(' and s[p] == ')') or
+        #         (popped == '[' and s[p] == ']') or
+        #         (popped == '{' and s[p] == '}')
+        #     ):
+        #         continue
+        #     return False
+        # if len(stack) > 0:
+        #     return False
+        # return True
         
         # Initial Solution With Brainstorm Comments
         # # empty list (stack)
