@@ -12,10 +12,17 @@ class KthLargest:
         
 
     def add(self, val: int) -> int:
-        if not self.nums:
-            self.nums.append(val)
-        if len(self.nums) == self.k:
-            heapq.heappushpop(self.nums, val)
-        else:
-            heapq.heappush(self.nums, val)
-        return self.nums[0]
+        # Improved Solution
+        heapq.heappush(self.minHeap, val)
+        if len(self.minHeap) > self.k:
+            heapq.heappop(self.minHeap)
+        return self.minHeap[0]
+    
+        # Initial Solution
+        # if not self.nums:
+        #     self.nums.append(val)
+        # if len(self.nums) == self.k:
+        #     heapq.heappushpop(self.nums, val)
+        # else:
+        #     heapq.heappush(self.nums, val)
+        # return self.nums[0]
